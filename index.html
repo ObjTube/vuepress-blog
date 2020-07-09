@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>首页 | ObjTube</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <meta name="description" content="This is a blog example built by VuePress">
+    <link rel="preload" href="/assets/css/0.styles.9cb098ce.css" as="style"><link rel="preload" href="/assets/js/app.1616cf90.js" as="script"><link rel="preload" href="/assets/js/3.cc82d841.js" as="script"><link rel="prefetch" href="/assets/js/1.e27b7828.js"><link rel="prefetch" href="/assets/js/10.7aca9483.js"><link rel="prefetch" href="/assets/js/11.65f8bfaf.js"><link rel="prefetch" href="/assets/js/12.549e074d.js"><link rel="prefetch" href="/assets/js/13.652c3870.js"><link rel="prefetch" href="/assets/js/14.5612496d.js"><link rel="prefetch" href="/assets/js/15.5a1b91e9.js"><link rel="prefetch" href="/assets/js/16.d3fed682.js"><link rel="prefetch" href="/assets/js/17.23753d3d.js"><link rel="prefetch" href="/assets/js/18.32483e81.js"><link rel="prefetch" href="/assets/js/19.3dafe9a8.js"><link rel="prefetch" href="/assets/js/20.863c943e.js"><link rel="prefetch" href="/assets/js/21.a0be4475.js"><link rel="prefetch" href="/assets/js/22.1742da99.js"><link rel="prefetch" href="/assets/js/23.9e6eafd6.js"><link rel="prefetch" href="/assets/js/24.52199e9c.js"><link rel="prefetch" href="/assets/js/25.b69fd7c8.js"><link rel="prefetch" href="/assets/js/26.b9a774ff.js"><link rel="prefetch" href="/assets/js/27.3beb64d1.js"><link rel="prefetch" href="/assets/js/28.e81c817f.js"><link rel="prefetch" href="/assets/js/4.f5f0c449.js"><link rel="prefetch" href="/assets/js/5.d52e8d9a.js"><link rel="prefetch" href="/assets/js/6.49fe8178.js"><link rel="prefetch" href="/assets/js/7.8b92e1af.js"><link rel="prefetch" href="/assets/js/8.ee680232.js"><link rel="prefetch" href="/assets/js/9.1487f605.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.9cb098ce.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-meteorlxy"><header class="header" data-v-a42ee240><div data-v-2665aef1 data-v-a42ee240><nav class="navbar" data-v-2665aef1><div class="container" data-v-2665aef1><a href="/" aria-current="page" class="router-link-exact-active router-link-active" data-v-2665aef1><span class="navbar-site-name" data-v-2665aef1>
+          ObjTube
+        </span></a> <div class="navbar-toggler" data-v-2665aef1><svg class="icon" style="font-size:1.2em;" data-v-2665aef1 data-v-2665aef1><title data-v-2665aef1 data-v-2665aef1>menu</title><use xlink:href="#icon-menu" data-v-2665aef1 data-v-2665aef1></use></svg></div> <div class="navbar-links" data-v-2665aef1><a href="/" aria-current="page" class="navbar-link router-link-exact-active router-link-active" data-v-2665aef1>
+            首页
+          </a><a href="/posts/" class="navbar-link" data-v-2665aef1>
+            文章
+          </a></div></div></nav> <div class="navbar-holder" style="display:none;" data-v-2665aef1></div></div> <div class="banner" data-v-728c2ab0 data-v-a42ee240 data-v-a42ee240><div class="container" data-v-728c2ab0><div class="center" data-v-728c2ab0><h1 data-v-728c2ab0 data-v-a42ee240>
+          首页
+        </h1></div></div></div></header> <div class="container clearfix show-aside" data-v-37cc5aeb data-v-37cc5aeb><main class="main" data-v-37cc5aeb><div class="home" data-v-37cc5aeb data-v-37cc5aeb><div class="main-div posts-list" data-v-2139baf5><div class="posts-items" data-v-2139baf5 data-v-2139baf5><div data-v-2139baf5><div each-side="2" class="posts-list-item" data-v-2139baf5><a href="/posts/2019/05/06/writing-a-vuepress-theme-2.html" class="post-link"><h3 class="post-title">
+      Writing a VuePress theme
+    </h3></a> <p class="post-info-list"><!----> <span class="post-info-item"><span title="2019-05-06"><svg class="icon" style="font-size:1em;"><title>2019-05-06</title><use xlink:href="#icon-date"></use></svg><span class="info-text">
+        2019-05-06
+      </span></span></span> <!----> <!----></p> <p class="post-excerpt content"><h1 id="writing-a-vuepress-theme"><a class="header-anchor" href="#writing-a-vuepress-theme">#</a> Writing a VuePress theme</h1>
+<p>To write a theme, create a <code>.vuepress/theme</code> directory in your docs root, and then create a <code>Layout.vue</code> file:</p>
+<!--beforebegin--><div class="language- extra-class"><!--afterbegin--><pre v-pre class="language-text"><code>.
+└─ .vuepress
+   └─ `theme`
+       └─ Layout.vue
+</code></pre>
+<!--beforeend--></div><!--afterend--><p>From there it's the same as developing a normal Vue application. It is entirely up to you how to organize your theme.</p>
+<h2 id="content-outlet"><a class="header-anchor" href="#content-outlet">#</a> Content Outlet</h2>
+<p>The compiled content of the current <code>.md</code> file being rendered will be available as a special <code>&lt;Content/&gt;</code> global component. You will need to render it somewhere in your layout in order to display the content of the page. The simplest theme can be just a single <code>Layout.vue</code> component with the following content:</p>
+<!--beforebegin--><div class="language-html extra-class"><!--afterbegin--><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>theme-container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Content</span><span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<!--beforeend--></div><!--afterend--><p><strong>Also see:</strong></p>
+<ul>
+<li><RouterLink to="/guide/markdown-slot.html">Markdown Slot</RouterLink></li>
+</ul>
+<h2 id="directory-structure"><a class="header-anchor" href="#directory-structure">#</a> Directory Structure</h2>
+<p>Just one <code>Layout.vue</code> might not be enough, and you might also want to define more layout components in the theme for using on different pages. You may also want to customize the <RouterLink to="/config/#palette-styl">palette</RouterLink>, and even apply some plugins.</p>
+<p>So it's time to reorganize your theme, an agreed theme directory structure is as follows:</p>
+<p>::: vue
+theme
+├── <code>global-components</code>
+│   └── xxx.vue
+├── <code>components</code>
+│   └── xxx.vue
+├── <code>layouts</code>
+│   ├── Layout.vue <em>(<strong>Mandatory</strong>)</em>
+│   └── 404.vue
+├── <code>styles</code>
+│   ├── index.styl
+│   └── palette.styl
+├── <code>templates</code>
+│   ├── dev.html
+│   └── ssr.html
+├── <code>index.js</code>
+├── <code>enhanceApp.js</code>
+└── package.json
+:::</p>
+<ul>
+<li><code>theme/global-components</code>: Components under this directory will be automatically registered as global components. For details, please refer to <a href="https://github.com/vuejs/vuepress/tree/master/packages/@vuepress/plugin-register-components" target="_blank" rel="noopener noreferrer">@vuepress/plugin-register-components<OutboundLink/></a>.</li>
+<li><code>theme/components</code>: Your components.</li>
+<li><code>theme/layouts</code>: Layout components of the theme, where <code>Layout.vue</code> is required.</li>
+<li><code>theme/styles</code>: Global style and palette.</li>
+<li><code>theme/templates</code>: Modify default template.</li>
+<li><code>theme/index.js</code>: Entry file of theme configuration.</li>
+<li><code>theme/enhanceApp.js</code>: Theme level enhancements.</li>
+</ul>
+<div class="custom-block warning"><p class="custom-block-title">Note</p>
+<p>When you publish your theme as an NPM package, if you don't have any theme configuration, that means you don't have <code>theme/index.js</code>, you'll need to set the <code>&quot;main&quot;</code> field  to <code>layouts/Layout.vue</code> in <code>package.json</code>, only in this way VuePress can correctly resolve the theme.</p>
+<!--beforebegin--><div class="language-json extra-class"><!--afterbegin--><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
+  ...
+  <span class="token property">"main"</span><span class="token operator">:</span> <span class="token string">"layouts/Layout.vue"</span><span class="token punctuation">,</span>
+  ...
+<span class="token punctuation">}</span>
+</code></pre>
+<!--beforeend--></div><!--afterend--></div>
+<h2 id="layout-component"><a class="header-anchor" href="#layout-component">#</a> Layout Component</h2>
+<p>Suppose your theme layouts folder is as follows:</p>
+<p>::: vue
+theme
+└── <code>layouts</code>
+   ├── Layout.vue
+   ├── AnotherLayout.vue
+   └── 404.vue
+:::</p>
+<p>Then, all the pages will use <code>Layout.vue</code> as layout component by default, while the routes not matching will use <code>404.vue</code>.</p>
+<p>If you want to switch the layout of some pages to <code>AnotherLayout.vue</code>, you just need to update the frontmatter of this page:</p>
+<!--beforebegin--><div class="language-markdown extra-class"><!--afterbegin--><pre v-pre class="language-markdown"><code><span class="token hr punctuation">---</span>
+<span class="token title important">layout: AnotherLayout
+<span class="token punctuation">---</span></span>
+</code></pre>
+<!--beforeend--></div><!--afterend--><div class="custom-block tip"><p class="custom-block-title">TIP</p>
+<p>Each layout component may render distinct pages. If you want to apply some global UI (e.g. global header), consider using <RouterLink to="/_posts/option-api.html#globallayout">globalLayout</RouterLink>。</p>
+</div>
+<h2 id="apply-plugins"><a class="header-anchor" href="#apply-plugins">#</a> Apply plugins</h2>
+<p>You can apply some plugins to the theme via <code>theme/index.js</code>.</p>
+<!--beforebegin--><div class="language-js extra-class"><!--afterbegin--><pre v-pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span><span class="token string">'@vuepress/pwa'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> 
+      serviceWorker<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      updatePopup<span class="token operator">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<!--beforeend--></div><!--afterend--><h2 id="site-and-page-metadata"><a class="header-anchor" href="#site-and-page-metadata">#</a> Site and Page Metadata</h2>
+<p>The <code>Layout</code> component will be invoked once for every <code>.md</code> file in <code>docs</code>, and the metadata for the entire site and that specific page will be exposed respectively as <code>this.$site</code> and <code>this.$page</code> properties which are injected into every component in the app.</p>
+<p>This is the value of <code>$site</code> of this very website:</p>
+<!--beforebegin--><div class="language-json extra-class"><!--afterbegin--><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"VuePress"</span><span class="token punctuation">,</span>
+  <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"Vue-powered Static Site Generator"</span><span class="token punctuation">,</span>
+  <span class="token property">"base"</span><span class="token operator">:</span> <span class="token string">"/"</span><span class="token punctuation">,</span>
+  <span class="token property">"pages"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"lastUpdated"</span><span class="token operator">:</span> <span class="token number">1524027677000</span><span class="token punctuation">,</span>
+      <span class="token property">"path"</span><span class="token operator">:</span> <span class="token string">"/"</span><span class="token punctuation">,</span>
+      <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"VuePress"</span><span class="token punctuation">,</span>
+      <span class="token property">"frontmatter"</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    ...
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<!--beforeend--></div><!--afterend--><p><code>title</code>, <code>description</code> and <code>base</code> are copied from respective fields in <code>.vuepress/config.js</code>. <code>pages</code> contains an array of metadata objects for each page, including its path, page title (explicitly specified in <RouterLink to="/guide/markdown.html#front-matter">YAML front matter</RouterLink> or inferred from the first header on the page), and any YAML front matter data in that file.</p>
+<p>This is the <code>$page</code> object for this page you are looking at:</p>
+<!--beforebegin--><div class="language-json extra-class"><!--afterbegin--><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">"lastUpdated"</span><span class="token operator">:</span> <span class="token number">1524847549000</span><span class="token punctuation">,</span>
+  <span class="token property">"path"</span><span class="token operator">:</span> <span class="token string">"/guide/custom-themes.html"</span><span class="token punctuation">,</span>
+  <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Custom Themes"</span><span class="token punctuation">,</span>
+  <span class="token property">"headers"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token comment">/* ... */</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">"frontmatter"</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<!--beforeend--></div><!--afterend--><p>If the user provided <code>themeConfig</code> in <code>.vuepress/config.js</code>, it will also be available as <code>$site.themeConfig</code>. You can use this to allow users to customize behavior of your theme - for example, specifying categories and page order. You can then use these data together with <code>$site.pages</code> to dynamically construct navigation links.</p>
+<p>Finally, don't forget that <code>this.$route</code> and <code>this.$router</code> are also available as part of Vue Router's API.</p>
+<div class="custom-block tip"><p class="custom-block-title">TIP</p>
+<p><code>lastUpdated</code> is the UNIX timestamp of this file's last git commit, for more details, refer to <RouterLink to="/theme/default-theme-config.html#last-updated">Last Updated</RouterLink>.</p>
+</div>
+<h2 id="content-excerpt"><a class="header-anchor" href="#content-excerpt">#</a> Content Excerpt</h2>
+<p>If a markdown file contains a `</p>
+</p></div><div each-side="2" class="posts-list-item" data-v-2139baf5><a href="/posts/2019/05/06/writing-a-vuepress-theme-3.html" class="post-link"><h3 class="post-title">
+      Writing a VuePress theme
+    </h3></a> <p class="post-info-list"><!----> <span class="post-info-item"><span title="2019-05-06"><svg class="icon" style="font-size:1em;"><title>2019-05-06</title><use xlink:href="#icon-date"></use></svg><span class="info-text">
+        2019-05-06
+      </span></span></span> <!----> <!----></p> <p class="post-excerpt content"><h1 id="writing-a-vuepress-theme"><a class="header-anchor" href="#writing-a-vuepress-theme">#</a> Writing a VuePress theme</h1>
+<p>To write a theme, create a <code>.vuepress/theme</code> directory in your docs root, and then create a <code>Layout.vue</code> file:</p>
+<!--beforebegin--><div class="language- extra-class"><!--afterbegin--><pre v-pre class="language-text"><code>.
+└─ .vuepress
+   └─ `theme`
+       └─ Layout.vue
+</code></pre>
+<!--beforeend--></div><!--afterend--><p>From there it's the same as developing a normal Vue application. It is entirely up to you how to organize your theme.</p>
+<h2 id="content-outlet"><a class="header-anchor" href="#content-outlet">#</a> Content Outlet</h2>
+<p>The compiled content of the current <code>.md</code> file being rendered will be available as a special <code>&lt;Content/&gt;</code> global component. You will need to render it somewhere in your layout in order to display the content of the page. The simplest theme can be just a single <code>Layout.vue</code> component with the following content:</p>
+<!--beforebegin--><div class="language-html extra-class"><!--afterbegin--><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>theme-container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Content</span><span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<!--beforeend--></div><!--afterend--><p><strong>Also see:</strong></p>
+<ul>
+<li><RouterLink to="/guide/markdown-slot.html">Markdown Slot</RouterLink></li>
+</ul>
+<h2 id="directory-structure"><a class="header-anchor" href="#directory-structure">#</a> Directory Structure</h2>
+<p>Just one <code>Layout.vue</code> might not be enough, and you might also want to define more layout components in the theme for using on different pages. You may also want to customize the <RouterLink to="/config/#palette-styl">palette</RouterLink>, and even apply some plugins.</p>
+<p>So it's time to reorganize your theme, an agreed theme directory structure is as follows:</p>
+<p>::: vue
+theme
+├── <code>global-components</code>
+│   └── xxx.vue
+├── <code>components</code>
+│   └── xxx.vue
+├── <code>layouts</code>
+│   ├── Layout.vue <em>(<strong>Mandatory</strong>)</em>
+│   └── 404.vue
+├── <code>styles</code>
+│   ├── index.styl
+│   └── palette.styl
+├── <code>templates</code>
+│   ├── dev.html
+│   └── ssr.html
+├── <code>index.js</code>
+├── <code>enhanceApp.js</code>
+└── package.json
+:::</p>
+<ul>
+<li><code>theme/global-components</code>: Components under this directory will be automatically registered as global components. For details, please refer to <a href="https://github.com/vuejs/vuepress/tree/master/packages/@vuepress/plugin-register-components" target="_blank" rel="noopener noreferrer">@vuepress/plugin-register-components<OutboundLink/></a>.</li>
+<li><code>theme/components</code>: Your components.</li>
+<li><code>theme/layouts</code>: Layout components of the theme, where <code>Layout.vue</code> is required.</li>
+<li><code>theme/styles</code>: Global style and palette.</li>
+<li><code>theme/templates</code>: Modify default template.</li>
+<li><code>theme/index.js</code>: Entry file of theme configuration.</li>
+<li><code>theme/enhanceApp.js</code>: Theme level enhancements.</li>
+</ul>
+<div class="custom-block warning"><p class="custom-block-title">Note</p>
+<p>When you publish your theme as an NPM package, if you don't have any theme configuration, that means you don't have <code>theme/index.js</code>, you'll need to set the <code>&quot;main&quot;</code> field  to <code>layouts/Layout.vue</code> in <code>package.json</code>, only in this way VuePress can correctly resolve the theme.</p>
+<!--beforebegin--><div class="language-json extra-class"><!--afterbegin--><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
+  ...
+  <span class="token property">"main"</span><span class="token operator">:</span> <span class="token string">"layouts/Layout.vue"</span><span class="token punctuation">,</span>
+  ...
+<span class="token punctuation">}</span>
+</code></pre>
+<!--beforeend--></div><!--afterend--></div>
+<h2 id="layout-component"><a class="header-anchor" href="#layout-component">#</a> Layout Component</h2>
+<p>Suppose your theme layouts folder is as follows:</p>
+<p>::: vue
+theme
+└── <code>layouts</code>
+   ├── Layout.vue
+   ├── AnotherLayout.vue
+   └── 404.vue
+:::</p>
+<p>Then, all the pages will use <code>Layout.vue</code> as layout component by default, while the routes not matching will use <code>404.vue</code>.</p>
+<p>If you want to switch the layout of some pages to <code>AnotherLayout.vue</code>, you just need to update the frontmatter of this page:</p>
+<!--beforebegin--><div class="language-markdown extra-class"><!--afterbegin--><pre v-pre class="language-markdown"><code><span class="token hr punctuation">---</span>
+<span class="token title important">layout: AnotherLayout
+<span class="token punctuation">---</span></span>
+</code></pre>
+<!--beforeend--></div><!--afterend--><div class="custom-block tip"><p class="custom-block-title">TIP</p>
+<p>Each layout component may render distinct pages. If you want to apply some global UI (e.g. global header), consider using <RouterLink to="/_posts/option-api.html#globallayout">globalLayout</RouterLink>。</p>
+</div>
+<h2 id="apply-plugins"><a class="header-anchor" href="#apply-plugins">#</a> Apply plugins</h2>
+<p>You can apply some plugins to the theme via <code>theme/index.js</code>.</p>
+<!--beforebegin--><div class="language-js extra-class"><!--afterbegin--><pre v-pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span><span class="token string">'@vuepress/pwa'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> 
+      serviceWorker<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      updatePopup<span class="token operator">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<!--beforeend--></div><!--afterend--><h2 id="site-and-page-metadata"><a class="header-anchor" href="#site-and-page-metadata">#</a> Site and Page Metadata</h2>
+<p>The <code>Layout</code> component will be invoked once for every <code>.md</code> file in <code>docs</code>, and the metadata for the entire site and that specific page will be exposed respectively as <code>this.$site</code> and <code>this.$page</code> properties which are injected into every component in the app.</p>
+<p>This is the value of <code>$site</code> of this very website:</p>
+<!--beforebegin--><div class="language-json extra-class"><!--afterbegin--><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"VuePress"</span><span class="token punctuation">,</span>
+  <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"Vue-powered Static Site Generator"</span><span class="token punctuation">,</span>
+  <span class="token property">"base"</span><span class="token operator">:</span> <span class="token string">"/"</span><span class="token punctuation">,</span>
+  <span class="token property">"pages"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"lastUpdated"</span><span class="token operator">:</span> <span class="token number">1524027677000</span><span class="token punctuation">,</span>
+      <span class="token property">"path"</span><span class="token operator">:</span> <span class="token string">"/"</span><span class="token punctuation">,</span>
+      <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"VuePress"</span><span class="token punctuation">,</span>
+      <span class="token property">"frontmatter"</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    ...
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<!--beforeend--></div><!--afterend--><p><code>title</code>, <code>description</code> and <code>base</code> are copied from respective fields in <code>.vuepress/config.js</code>. <code>pages</code> contains an array of metadata objects for each page, including its path, page title (explicitly specified in <RouterLink to="/guide/markdown.html#front-matter">YAML front matter</RouterLink> or inferred from the first header on the page), and any YAML front matter data in that file.</p>
+<p>This is the <code>$page</code> object for this page you are looking at:</p>
+<!--beforebegin--><div class="language-json extra-class"><!--afterbegin--><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">"lastUpdated"</span><span class="token operator">:</span> <span class="token number">1524847549000</span><span class="token punctuation">,</span>
+  <span class="token property">"path"</span><span class="token operator">:</span> <span class="token string">"/guide/custom-themes.html"</span><span class="token punctuation">,</span>
+  <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Custom Themes"</span><span class="token punctuation">,</span>
+  <span class="token property">"headers"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token comment">/* ... */</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">"frontmatter"</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<!--beforeend--></div><!--afterend--><p>If the user provided <code>themeConfig</code> in <code>.vuepress/config.js</code>, it will also be available as <code>$site.themeConfig</code>. You can use this to allow users to customize behavior of your theme - for example, specifying categories and page order. You can then use these data together with <code>$site.pages</code> to dynamically construct navigation links.</p>
+<p>Finally, don't forget that <code>this.$route</code> and <code>this.$router</code> are also available as part of Vue Router's API.</p>
+<div class="custom-block tip"><p class="custom-block-title">TIP</p>
+<p><code>lastUpdated</code> is the UNIX timestamp of this file's last git commit, for more details, refer to <RouterLink to="/theme/default-theme-config.html#last-updated">Last Updated</RouterLink>.</p>
+</div>
+<h2 id="content-excerpt"><a class="header-anchor" href="#content-excerpt">#</a> Content Excerpt</h2>
+<p>If a markdown file contains a `</p>
+</p></div><div each-side="2" class="posts-list-item" data-v-2139baf5><a href="/posts/2019/05/06/writing-a-vuepress-theme-4.html" class="post-link"><h3 class="post-title">
+      Writing a VuePress theme
+    </h3></a> <p class="post-info-list"><!----> <span class="post-info-item"><span title="2019-05-06"><svg class="icon" style="font-size:1em;"><title>2019-05-06</title><use xlink:href="#icon-date"></use></svg><span class="info-text">
+        2019-05-06
+      </span></span></span> <!----> <!----></p> <p class="post-excerpt content"><h1 id="writing-a-vuepress-theme"><a class="header-anchor" href="#writing-a-vuepress-theme">#</a> Writing a VuePress theme</h1>
+<p>To write a theme, create a <code>.vuepress/theme</code> directory in your docs root, and then create a <code>Layout.vue</code> file:</p>
+<!--beforebegin--><div class="language- extra-class"><!--afterbegin--><pre v-pre class="language-text"><code>.
+└─ .vuepress
+   └─ `theme`
+       └─ Layout.vue
+</code></pre>
+<!--beforeend--></div><!--afterend--><p>From there it's the same as developing a normal Vue application. It is entirely up to you how to organize your theme.</p>
+<h2 id="content-outlet"><a class="header-anchor" href="#content-outlet">#</a> Content Outlet</h2>
+<p>The compiled content of the current <code>.md</code> file being rendered will be available as a special <code>&lt;Content/&gt;</code> global component. You will need to render it somewhere in your layout in order to display the content of the page. The simplest theme can be just a single <code>Layout.vue</code> component with the following content:</p>
+<!--beforebegin--><div class="language-html extra-class"><!--afterbegin--><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>theme-container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Content</span><span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<!--beforeend--></div><!--afterend--><p><strong>Also see:</strong></p>
+<ul>
+<li><RouterLink to="/guide/markdown-slot.html">Markdown Slot</RouterLink></li>
+</ul>
+<h2 id="directory-structure"><a class="header-anchor" href="#directory-structure">#</a> Directory Structure</h2>
+<p>Just one <code>Layout.vue</code> might not be enough, and you might also want to define more layout components in the theme for using on different pages. You may also want to customize the <RouterLink to="/config/#palette-styl">palette</RouterLink>, and even apply some plugins.</p>
+<p>So it's time to reorganize your theme, an agreed theme directory structure is as follows:</p>
+<p>::: vue
+theme
+├── <code>global-components</code>
+│   └── xxx.vue
+├── <code>components</code>
+│   └── xxx.vue
+├── <code>layouts</code>
+│   ├── Layout.vue <em>(<strong>Mandatory</strong>)</em>
+│   └── 404.vue
+├── <code>styles</code>
+│   ├── index.styl
+│   └── palette.styl
+├── <code>templates</code>
+│   ├── dev.html
+│   └── ssr.html
+├── <code>index.js</code>
+├── <code>enhanceApp.js</code>
+└── package.json
+:::</p>
+<ul>
+<li><code>theme/global-components</code>: Components under this directory will be automatically registered as global components. For details, please refer to <a href="https://github.com/vuejs/vuepress/tree/master/packages/@vuepress/plugin-register-components" target="_blank" rel="noopener noreferrer">@vuepress/plugin-register-components<OutboundLink/></a>.</li>
+<li><code>theme/components</code>: Your components.</li>
+<li><code>theme/layouts</code>: Layout components of the theme, where <code>Layout.vue</code> is required.</li>
+<li><code>theme/styles</code>: Global style and palette.</li>
+<li><code>theme/templates</code>: Modify default template.</li>
+<li><code>theme/index.js</code>: Entry file of theme configuration.</li>
+<li><code>theme/enhanceApp.js</code>: Theme level enhancements.</li>
+</ul>
+<div class="custom-block warning"><p class="custom-block-title">Note</p>
+<p>When you publish your theme as an NPM package, if you don't have any theme configuration, that means you don't have <code>theme/index.js</code>, you'll need to set the <code>&quot;main&quot;</code> field  to <code>layouts/Layout.vue</code> in <code>package.json</code>, only in this way VuePress can correctly resolve the theme.</p>
+<!--beforebegin--><div class="language-json extra-class"><!--afterbegin--><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
+  ...
+  <span class="token property">"main"</span><span class="token operator">:</span> <span class="token string">"layouts/Layout.vue"</span><span class="token punctuation">,</span>
+  ...
+<span class="token punctuation">}</span>
+</code></pre>
+<!--beforeend--></div><!--afterend--></div>
+<h2 id="layout-component"><a class="header-anchor" href="#layout-component">#</a> Layout Component</h2>
+<p>Suppose your theme layouts folder is as follows:</p>
+<p>::: vue
+theme
+└── <code>layouts</code>
+   ├── Layout.vue
+   ├── AnotherLayout.vue
+   └── 404.vue
+:::</p>
+<p>Then, all the pages will use <code>Layout.vue</code> as layout component by default, while the routes not matching will use <code>404.vue</code>.</p>
+<p>If you want to switch the layout of some pages to <code>AnotherLayout.vue</code>, you just need to update the frontmatter of this page:</p>
+<!--beforebegin--><div class="language-markdown extra-class"><!--afterbegin--><pre v-pre class="language-markdown"><code><span class="token hr punctuation">---</span>
+<span class="token title important">layout: AnotherLayout
+<span class="token punctuation">---</span></span>
+</code></pre>
+<!--beforeend--></div><!--afterend--><div class="custom-block tip"><p class="custom-block-title">TIP</p>
+<p>Each layout component may render distinct pages. If you want to apply some global UI (e.g. global header), consider using <RouterLink to="/_posts/option-api.html#globallayout">globalLayout</RouterLink>。</p>
+</div>
+<h2 id="apply-plugins"><a class="header-anchor" href="#apply-plugins">#</a> Apply plugins</h2>
+<p>You can apply some plugins to the theme via <code>theme/index.js</code>.</p>
+<!--beforebegin--><div class="language-js extra-class"><!--afterbegin--><pre v-pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span><span class="token string">'@vuepress/pwa'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> 
+      serviceWorker<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      updatePopup<span class="token operator">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<!--beforeend--></div><!--afterend--><h2 id="site-and-page-metadata"><a class="header-anchor" href="#site-and-page-metadata">#</a> Site and Page Metadata</h2>
+<p>The <code>Layout</code> component will be invoked once for every <code>.md</code> file in <code>docs</code>, and the metadata for the entire site and that specific page will be exposed respectively as <code>this.$site</code> and <code>this.$page</code> properties which are injected into every component in the app.</p>
+<p>This is the value of <code>$site</code> of this very website:</p>
+<!--beforebegin--><div class="language-json extra-class"><!--afterbegin--><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"VuePress"</span><span class="token punctuation">,</span>
+  <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"Vue-powered Static Site Generator"</span><span class="token punctuation">,</span>
+  <span class="token property">"base"</span><span class="token operator">:</span> <span class="token string">"/"</span><span class="token punctuation">,</span>
+  <span class="token property">"pages"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"lastUpdated"</span><span class="token operator">:</span> <span class="token number">1524027677000</span><span class="token punctuation">,</span>
+      <span class="token property">"path"</span><span class="token operator">:</span> <span class="token string">"/"</span><span class="token punctuation">,</span>
+      <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"VuePress"</span><span class="token punctuation">,</span>
+      <span class="token property">"frontmatter"</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    ...
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<!--beforeend--></div><!--afterend--><p><code>title</code>, <code>description</code> and <code>base</code> are copied from respective fields in <code>.vuepress/config.js</code>. <code>pages</code> contains an array of metadata objects for each page, including its path, page title (explicitly specified in <RouterLink to="/guide/markdown.html#front-matter">YAML front matter</RouterLink> or inferred from the first header on the page), and any YAML front matter data in that file.</p>
+<p>This is the <code>$page</code> object for this page you are looking at:</p>
+<!--beforebegin--><div class="language-json extra-class"><!--afterbegin--><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">"lastUpdated"</span><span class="token operator">:</span> <span class="token number">1524847549000</span><span class="token punctuation">,</span>
+  <span class="token property">"path"</span><span class="token operator">:</span> <span class="token string">"/guide/custom-themes.html"</span><span class="token punctuation">,</span>
+  <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Custom Themes"</span><span class="token punctuation">,</span>
+  <span class="token property">"headers"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token comment">/* ... */</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">"frontmatter"</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<!--beforeend--></div><!--afterend--><p>If the user provided <code>themeConfig</code> in <code>.vuepress/config.js</code>, it will also be available as <code>$site.themeConfig</code>. You can use this to allow users to customize behavior of your theme - for example, specifying categories and page order. You can then use these data together with <code>$site.pages</code> to dynamically construct navigation links.</p>
+<p>Finally, don't forget that <code>this.$route</code> and <code>this.$router</code> are also available as part of Vue Router's API.</p>
+<div class="custom-block tip"><p class="custom-block-title">TIP</p>
+<p><code>lastUpdated</code> is the UNIX timestamp of this file's last git commit, for more details, refer to <RouterLink to="/theme/default-theme-config.html#last-updated">Last Updated</RouterLink>.</p>
+</div>
+<h2 id="content-excerpt"><a class="header-anchor" href="#content-excerpt">#</a> Content Excerpt</h2>
+<p>If a markdown file contains a `</p>
+</p></div><div each-side="2" class="posts-list-item" data-v-2139baf5><a href="/posts/2019/05/06/writing-a-vuepress-theme.html" class="post-link"><h3 class="post-title">
+      Writing a VuePress theme
+    </h3></a> <p class="post-info-list"><!----> <span class="post-info-item"><span title="2019-05-06"><svg class="icon" style="font-size:1em;"><title>2019-05-06</title><use xlink:href="#icon-date"></use></svg><span class="info-text">
+        2019-05-06
+      </span></span></span> <!----> <!----></p> <p class="post-excerpt content"><h1 id="writing-a-vuepress-theme"><a class="header-anchor" href="#writing-a-vuepress-theme">#</a> Writing a VuePress theme</h1>
+<p>To write a theme, create a <code>.vuepress/theme</code> directory in your docs root, and then create a <code>Layout.vue</code> file:</p>
+<!--beforebegin--><div class="language- extra-class"><!--afterbegin--><pre v-pre class="language-text"><code>.
+└─ .vuepress
+   └─ `theme`
+       └─ Layout.vue
+</code></pre>
+<!--beforeend--></div><!--afterend--><p>From there it's the same as developing a normal Vue application. It is entirely up to you how to organize your theme.</p>
+<h2 id="content-outlet"><a class="header-anchor" href="#content-outlet">#</a> Content Outlet</h2>
+<p>The compiled content of the current <code>.md</code> file being rendered will be available as a special <code>&lt;Content/&gt;</code> global component. You will need to render it somewhere in your layout in order to display the content of the page. The simplest theme can be just a single <code>Layout.vue</code> component with the following content:</p>
+<!--beforebegin--><div class="language-html extra-class"><!--afterbegin--><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>theme-container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Content</span><span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
+</code></pre>
+<!--beforeend--></div><!--afterend--><p><strong>Also see:</strong></p>
+<ul>
+<li><RouterLink to="/guide/markdown-slot.html">Markdown Slot</RouterLink></li>
+</ul>
+<h2 id="directory-structure"><a class="header-anchor" href="#directory-structure">#</a> Directory Structure</h2>
+<p>Just one <code>Layout.vue</code> might not be enough, and you might also want to define more layout components in the theme for using on different pages. You may also want to customize the <RouterLink to="/config/#palette-styl">palette</RouterLink>, and even apply some plugins.</p>
+<p>So it's time to reorganize your theme, an agreed theme directory structure is as follows:</p>
+<p>::: vue
+theme
+├── <code>global-components</code>
+│   └── xxx.vue
+├── <code>components</code>
+│   └── xxx.vue
+├── <code>layouts</code>
+│   ├── Layout.vue <em>(<strong>Mandatory</strong>)</em>
+│   └── 404.vue
+├── <code>styles</code>
+│   ├── index.styl
+│   └── palette.styl
+├── <code>templates</code>
+│   ├── dev.html
+│   └── ssr.html
+├── <code>index.js</code>
+├── <code>enhanceApp.js</code>
+└── package.json
+:::</p>
+<ul>
+<li><code>theme/global-components</code>: Components under this directory will be automatically registered as global components. For details, please refer to <a href="https://github.com/vuejs/vuepress/tree/master/packages/@vuepress/plugin-register-components" target="_blank" rel="noopener noreferrer">@vuepress/plugin-register-components<OutboundLink/></a>.</li>
+<li><code>theme/components</code>: Your components.</li>
+<li><code>theme/layouts</code>: Layout components of the theme, where <code>Layout.vue</code> is required.</li>
+<li><code>theme/styles</code>: Global style and palette.</li>
+<li><code>theme/templates</code>: Modify default template.</li>
+<li><code>theme/index.js</code>: Entry file of theme configuration.</li>
+<li><code>theme/enhanceApp.js</code>: Theme level enhancements.</li>
+</ul>
+<div class="custom-block warning"><p class="custom-block-title">Note</p>
+<p>When you publish your theme as an NPM package, if you don't have any theme configuration, that means you don't have <code>theme/index.js</code>, you'll need to set the <code>&quot;main&quot;</code> field  to <code>layouts/Layout.vue</code> in <code>package.json</code>, only in this way VuePress can correctly resolve the theme.</p>
+<!--beforebegin--><div class="language-json extra-class"><!--afterbegin--><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
+  ...
+  <span class="token property">"main"</span><span class="token operator">:</span> <span class="token string">"layouts/Layout.vue"</span><span class="token punctuation">,</span>
+  ...
+<span class="token punctuation">}</span>
+</code></pre>
+<!--beforeend--></div><!--afterend--></div>
+<h2 id="layout-component"><a class="header-anchor" href="#layout-component">#</a> Layout Component</h2>
+<p>Suppose your theme layouts folder is as follows:</p>
+<p>::: vue
+theme
+└── <code>layouts</code>
+   ├── Layout.vue
+   ├── AnotherLayout.vue
+   └── 404.vue
+:::</p>
+<p>Then, all the pages will use <code>Layout.vue</code> as layout component by default, while the routes not matching will use <code>404.vue</code>.</p>
+<p>If you want to switch the layout of some pages to <code>AnotherLayout.vue</code>, you just need to update the frontmatter of this page:</p>
+<!--beforebegin--><div class="language-markdown extra-class"><!--afterbegin--><pre v-pre class="language-markdown"><code><span class="token hr punctuation">---</span>
+<span class="token title important">layout: AnotherLayout
+<span class="token punctuation">---</span></span>
+</code></pre>
+<!--beforeend--></div><!--afterend--><div class="custom-block tip"><p class="custom-block-title">TIP</p>
+<p>Each layout component may render distinct pages. If you want to apply some global UI (e.g. global header), consider using <RouterLink to="/_posts/option-api.html#globallayout">globalLayout</RouterLink>。</p>
+</div>
+<h2 id="apply-plugins"><a class="header-anchor" href="#apply-plugins">#</a> Apply plugins</h2>
+<p>You can apply some plugins to the theme via <code>theme/index.js</code>.</p>
+<!--beforebegin--><div class="language-js extra-class"><!--afterbegin--><pre v-pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span><span class="token string">'@vuepress/pwa'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> 
+      serviceWorker<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      updatePopup<span class="token operator">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<!--beforeend--></div><!--afterend--><h2 id="site-and-page-metadata"><a class="header-anchor" href="#site-and-page-metadata">#</a> Site and Page Metadata</h2>
+<p>The <code>Layout</code> component will be invoked once for every <code>.md</code> file in <code>docs</code>, and the metadata for the entire site and that specific page will be exposed respectively as <code>this.$site</code> and <code>this.$page</code> properties which are injected into every component in the app.</p>
+<p>This is the value of <code>$site</code> of this very website:</p>
+<!--beforebegin--><div class="language-json extra-class"><!--afterbegin--><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"VuePress"</span><span class="token punctuation">,</span>
+  <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"Vue-powered Static Site Generator"</span><span class="token punctuation">,</span>
+  <span class="token property">"base"</span><span class="token operator">:</span> <span class="token string">"/"</span><span class="token punctuation">,</span>
+  <span class="token property">"pages"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"lastUpdated"</span><span class="token operator">:</span> <span class="token number">1524027677000</span><span class="token punctuation">,</span>
+      <span class="token property">"path"</span><span class="token operator">:</span> <span class="token string">"/"</span><span class="token punctuation">,</span>
+      <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"VuePress"</span><span class="token punctuation">,</span>
+      <span class="token property">"frontmatter"</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    ...
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<!--beforeend--></div><!--afterend--><p><code>title</code>, <code>description</code> and <code>base</code> are copied from respective fields in <code>.vuepress/config.js</code>. <code>pages</code> contains an array of metadata objects for each page, including its path, page title (explicitly specified in <RouterLink to="/guide/markdown.html#front-matter">YAML front matter</RouterLink> or inferred from the first header on the page), and any YAML front matter data in that file.</p>
+<p>This is the <code>$page</code> object for this page you are looking at:</p>
+<!--beforebegin--><div class="language-json extra-class"><!--afterbegin--><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">"lastUpdated"</span><span class="token operator">:</span> <span class="token number">1524847549000</span><span class="token punctuation">,</span>
+  <span class="token property">"path"</span><span class="token operator">:</span> <span class="token string">"/guide/custom-themes.html"</span><span class="token punctuation">,</span>
+  <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Custom Themes"</span><span class="token punctuation">,</span>
+  <span class="token property">"headers"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token comment">/* ... */</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">"frontmatter"</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<!--beforeend--></div><!--afterend--><p>If the user provided <code>themeConfig</code> in <code>.vuepress/config.js</code>, it will also be available as <code>$site.themeConfig</code>. You can use this to allow users to customize behavior of your theme - for example, specifying categories and page order. You can then use these data together with <code>$site.pages</code> to dynamically construct navigation links.</p>
+<p>Finally, don't forget that <code>this.$route</code> and <code>this.$router</code> are also available as part of Vue Router's API.</p>
+<div class="custom-block tip"><p class="custom-block-title">TIP</p>
+<p><code>lastUpdated</code> is the UNIX timestamp of this file's last git commit, for more details, refer to <RouterLink to="/theme/default-theme-config.html#last-updated">Last Updated</RouterLink>.</p>
+</div>
+<h2 id="content-excerpt"><a class="header-anchor" href="#content-excerpt">#</a> Content Excerpt</h2>
+<p>If a markdown file contains a `</p>
+</p></div><div each-side="2" class="posts-list-item" data-v-2139baf5><a href="/posts/2019/02/26/markdown-slot-2.html" class="post-link"><h3 class="post-title">
+      Markdown Slot
+    </h3></a> <p class="post-info-list"><!----> <span class="post-info-item"><span title="2019-02-26"><svg class="icon" style="font-size:1em;"><title>2019-02-26</title><use xlink:href="#icon-date"></use></svg><span class="info-text">
+        2019-02-26
+      </span></span></span> <!----> <!----></p> <p class="post-excerpt content"></p></div></div></div> <div class="posts-paginator" data-v-2139baf5><ul class="pagination" data-v-1915bac2 data-v-2139baf5><li class="page-item disabled" data-v-1915bac2><span data-v-1915bac2>«</span></li> <li class="page-item active" data-v-1915bac2><span data-v-1915bac2>1</span></li><li class="page-item" data-v-1915bac2><span data-v-1915bac2>2</span></li><li class="page-item" data-v-1915bac2><span data-v-1915bac2>3</span></li> <li class="page-item" data-v-1915bac2><span data-v-1915bac2>»</span></li></ul></div></div></div></main> <aside class="aside" data-v-37cc5aeb><div class="info-card main-div" data-v-08749774 data-v-37cc5aeb><div class="info-card-header" data-v-08749774><img src="/assets/img/avatar_unknown.jpg" alt="Unknown" class="info-avatar" data-v-08749774></div> <div class="info-card-body" data-v-08749774><section class="info-nickname" data-v-08749774>
+      Unknown
+    </section> <!----> <section class="info-contact" data-v-08749774><!----> <!----> <!----></section></div> <!----></div> <!----></aside></div> <footer class="footer" data-v-58d7cb96><!----> <p class="footer-text" data-v-58d7cb96><span data-v-58d7cb96>Powered by </span> <a href="https://github.com/vuejs/vuepress" target="_blank" data-v-58d7cb96>
+      VuePress
+    </a> <span data-v-58d7cb96> | </span> <a href="https://github.com/meteorlxy/vuepress-theme-meteorlxy" target="_blank" data-v-58d7cb96>
+        meteorlxy
+      </a></p> <!----></footer></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.1616cf90.js" defer></script><script src="/assets/js/3.cc82d841.js" defer></script>
+  </body>
+</html>
