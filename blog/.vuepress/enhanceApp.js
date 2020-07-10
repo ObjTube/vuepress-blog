@@ -3,7 +3,7 @@
  *
  * https://v1.vuepress.vuejs.org/guide/basic-config.html#app-level-enhancements
  */
-
+import GithubEdit from './components/githubEdit.vue'
 export default ({
   Vue, // the version of Vue being used in the VuePress app
   options, // the options for the root Vue instance
@@ -11,4 +11,5 @@ export default ({
   siteData // site metadata
 }) => {
   // ...apply enhancements to the app
+  Vue.component('github-edit ', GithubEdit)
 }

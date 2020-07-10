@@ -11,6 +11,7 @@
   "scripts": {
     "dev": "vuepress dev blog",
     "build": "vuepress build blog",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d ./blog/.vuepress/dist"
   },
   "license": "MIT",

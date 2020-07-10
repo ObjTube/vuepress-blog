@@ -7,7 +7,7 @@ tag:
 author: ULIVZ
 location: Shanghai  
 ---
-
+ <github-edit :page="$page"/>
 # Writing a VuePress theme
 
 To write a theme, create a `.vuepress/theme` directory in your docs root, and then create a `Layout.vue` file:

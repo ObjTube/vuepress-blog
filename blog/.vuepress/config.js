@@ -1,6 +1,9 @@
+const { path } = require('@vuepress/shared-utils')
+
 module.exports = {
   title: 'ObjTube',
   description: 'This is a blog example built by VuePress',
+  base: '/vuepress-blog/',
   locales: {
     '/': {
       lang: 'zh-CN',
